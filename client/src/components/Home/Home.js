@@ -15,7 +15,7 @@ class Home extends React.Component {
               A Day In Denver
             </h1>
             <div className="row center">
-              <h5 className="header col s12 light white-text">
+              <h5 className="header col s12 light">
                 One Day In Denver is the one stop app for exploring Denver!
               </h5>
             </div>
@@ -41,8 +41,7 @@ class Home extends React.Component {
               <div className="col s12 m4">
                 <div className="icon-block">
                   <h2 className="center brown-text">
-                  Adventure
-                    {/* <i className="material-icons">Adventure</i> */}
+                    <i className="material-icons">Adventure</i>
                   </h2>
                   <h5 className="center">Speeds up development</h5>
                   <p className="light">
@@ -56,8 +55,7 @@ class Home extends React.Component {
               <div className="col s12 m4">
                 <div className="icon-block">
                   <h2 className="center brown-text">
-                  Dining
-                    {/* <i className="material-icons">Dining</i> */}
+                    <i className="material-icons">Dining</i>
                   </h2>
                   <h5 className="center">User Experience Focused</h5>
                   <p className="light">
@@ -72,8 +70,7 @@ class Home extends React.Component {
               <div className="col s12 m4">
                 <div className="icon-block">
                   <h2 className="center brown-text">
-                  Experiences
-                    {/* <i className="material-icons">Experiences</i> */}
+                    <i className="material-icons">Experiences</i>
                   </h2>
                   <h5 className="center">Easy to work with</h5>
                   <p className="light">

@@ -15,7 +15,7 @@ class Home extends React.Component {
               A Day In Denver
             </h1>
             <div className="row center">
-              <h5 className="header col s12 light">
+              <h5 className="header col s12 light white-text">
                 One Day In Denver is the one stop app for exploring Denver!
               </h5>
             </div>

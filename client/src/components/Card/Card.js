@@ -7,7 +7,7 @@ class Cardy extends React.Component {
     return (
       <Col m={6} s={12}>
         <Card
-          className="blue-grey darken-1"
+          className={this.props.color}
           textClassName="white-text"
           title="Card title"
           actions={[<a href="#">This is a link</a>]}

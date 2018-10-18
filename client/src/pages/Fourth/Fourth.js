@@ -1,13 +1,13 @@
 import React from "react";
-import "./Secondpage.css";
+import "./Fourth.css";
 import Cardy  from "../../components/Card"
 
 
-class Secondpage extends React.Component {
+class Fourth extends React.Component {
   render() {
     return (
       <Cardy />
     );
   }
 }
-export default Secondpage;
+export default Fourth;

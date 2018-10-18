@@ -1,24 +1,28 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import Header from "./components/Nav";
-import Footer from "./components/Footer";
+import Nav from "./components/Nav";
+import Foot from "./components/Footer";
 import Home from "./pages/Home";
-import Secondpage from "./pages/Secondpage";
+import Second from "./pages/Second";
+import Third from "./pages/Third";
+import Fourth from "./pages/Fourth";
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="App">
-          <Header />
+          <Nav />
           <main>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/secondpage" component={Secondpage} />
+            <Route exact path="/second" component={Second} />
+            <Route exact path="/third" component={Third} />
+            <Route exact path="/fourth" component={Fourth} />
           </Switch>
             </main>
-          <Footer />
+          <Foot />
         </div>
       </Router>
     );

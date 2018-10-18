@@ -1,9 +1,9 @@
 import React from "react";
-import "./Home.css";
+import "./Secondpage.css";
 import { Parallax } from "react-materialize";
 
 
-class Home extends React.Component {
+class Secondpage extends React.Component {
   render() {
     return (
       <div>
@@ -134,4 +134,4 @@ class Home extends React.Component {
     );
   }
 }
-export default Home;
+export default Secondpage;

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Nav from "./components/Nav";
 import Foot from "./components/Footer";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 
 class App extends Component {
   render() {

@@ -183,7 +183,7 @@ const eventSeed = [
     }
 ];
 
-db.Event
+db.Events
     .remove({})
     .then(() => db.Event.collection.insertMany(eventSeed))
     .then(data => {

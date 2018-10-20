@@ -185,7 +185,7 @@ const eventSeed = [
 
 db.Events
     .remove({})
-    .then(() => db.Event.collection.insertMany(eventSeed))
+    .then(() => db.Events.collection.insertMany(eventSeed))
     .then(data => {
         console.log(data.result.n + " records inserted!");
         process.exit(0);

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Fourth.css";
 import Cardy  from "../../components/Card"
+import Cal from "../../components/Cal"
 
 
 class Fourth extends React.Component {
@@ -16,8 +17,8 @@ class Fourth extends React.Component {
                 <Cardy />
 
             </div>
-            <div className="col s6 center-align">
-                <Cardy />
+            <div className="col s6 center">
+                <Cal />
 
             </div>
 

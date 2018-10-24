@@ -1,21 +1,31 @@
 import React from "react";
 import "./Card.css";
-import { Card, Col } from "react-materialize";
+import { Card, Col, CardPanel } from "react-materialize";
 
 class Cardy extends React.Component {
   render() {
     return (
-      <Col m={6} s={12}>
-        <Card
-          className={this.props.color}
-          textClassName="white-text"
-          title="Card title"
-          actions={[<a href="#">This is a link</a>]}
-        >
-          I am a very simple card.
-        </Card>
-      </Col>
+      
+        <CardPanel className={this.props.color}>
+          <div className="row">
+            <div className="col s6">
+              <span>{this.props.activityName}</span>
+              <br/>
+
+              {this.props.actvityDescription}
+            </div>
+            <div className="col s6">
+              <img
+                className="right"
+                src={this.props.activiyImage}
+                style={{ width: "200px" }}
+              />
+            </div>
+          </div>
+        </CardPanel>
+      
     );
   }
 }
 export default Cardy;
+

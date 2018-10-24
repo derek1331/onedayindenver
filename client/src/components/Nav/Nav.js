@@ -7,15 +7,16 @@ class Nav extends React.Component {
     return (
       <nav className="white" role="navigation">
         <div className="nav-wrapper container">
-          <a id="logo-container" href="#" className="brand-logo">
+          <a id="logo-container" href="#" className="brand-logo black-text">
             OneDay in Denver
           </a>
           <ul className="right hide-on-med-and-down">
             <NavLink
               exact to="/"
+              style={{color: "brown"}}
               activeStyle={{
                 fontWeight: "bold",
-                color: "red"
+                color: "teal"
               }}
             >
               Home
@@ -24,9 +25,10 @@ class Nav extends React.Component {
           <ul className="right hide-on-med-and-down">
             <NavLink
               to="/second"
+              style={{color: "brown"}}
               activeStyle={{
                 fontWeight: "bold",
-                color: "red"
+                color: "teal"
               }}
             >
               Second
@@ -35,9 +37,10 @@ class Nav extends React.Component {
           <ul className="right hide-on-med-and-down">
             <NavLink
               to="/third"
+              style={{color: "brown"}}
               activeStyle={{
                 fontWeight: "bold",
-                color: "red"
+                color: "teal"
               }}
             >
               Third
@@ -46,9 +49,10 @@ class Nav extends React.Component {
           <ul className="right hide-on-med-and-down">
             <NavLink
               to="/fourth"
+              style={{color: "brown"}}
               activeStyle={{
                 fontWeight: "bold",
-                color: "red"
+                color: "teal"
               }}
             >
               Fourth

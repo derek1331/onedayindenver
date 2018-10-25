@@ -1,6 +1,6 @@
 import React from "react";
 import "./Second.css";
-import Cardy  from "../../components/Card"
+import {Cardy}  from "../../components/Card"
 
 
 class Second extends React.Component {

@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Second from "./pages/Second";
 import Third from "./pages/Third";
 import Fourth from "./pages/Fourth";
+import Map from "./pages/Map";
 
 class App extends Component {
   render() {

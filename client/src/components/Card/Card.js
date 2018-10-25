@@ -1,8 +1,49 @@
 import React from "react";
 import "./Card.css";
-import { Card, Col } from "react-materialize";
+import { Card, Col, CardPanel } from "react-materialize";
 
 class Cardy extends React.Component {
+  render() {
+    return (
+      <CardPanel className={this.props.color}>
+        <div className="row">
+          <div className="col s6">
+            <span>{this.props.name}</span>
+            <br />
+
+            {this.props.description}
+          </div>
+          <div className="col s6">
+            <img
+              className="right"
+              src={this.props.image}
+              style={{ width: "200px" }}
+            />
+          </div>
+        </div>
+      </CardPanel>
+    );
+  }
+}
+
+class Cardy2 extends React.Component {
+  render() {
+    return (
+      <CardPanel className={this.props.color}>
+        <div className="row">
+          <div className="col s12">
+            <span>{this.props.name}</span>
+            <br />
+
+            {this.props.description}
+          </div>
+        </div>
+      </CardPanel>
+    );
+  }
+}
+
+class Cardy3 extends React.Component {
   render() {
     return (
       <Col m={6} s={12}>
@@ -18,4 +59,4 @@ class Cardy extends React.Component {
     );
   }
 }
-export default Cardy;
+export { Cardy, Cardy2 };

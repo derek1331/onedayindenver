@@ -1,1 +1,1 @@
-export { default } from "./Card";
+export { Cardy, Cardy2 } from "./Card";

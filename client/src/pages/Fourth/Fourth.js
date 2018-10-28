@@ -8,23 +8,44 @@ import Button from "../../components/Button";
 import { Icon } from "react-materialize";
 
 class Fourth extends React.Component {
-  state = {
-    meetups: [],
-    liked: [],
-    button: false
-  };
+  // state = {
+  //   meetups: [],
+  //   liked: [],
+  //   button: false
+  // };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+                  meetups: [1],
+                  liked:  [] 
+                };
+}
 
   // handleClick(id){this.setState({[id]: {favorite: !this.state.favorite}})}
-  handleChange =(id) => {
+  handleChange(id) {
     // With setState the current and previous states are merged.
-    if (this.state.liked.includes(id)) {
-      this.setState({liked: this.state.liked.pop()})
+    const {liked} = this.state
+    if (this.state.liked.length === 0){
+      this.setState({ liked: id})
+    } else if (this.state.liked.length > 0) {
+      if (this.state.liked.includes(id)) {
+        for( var i = 0; i < this.state.liked.length; i++){ 
+          if ( this.state.liked[i] === id) {
+            this.state.liked.splice(i, 1); 
+          }
+       }
+        this.setState({liked: this.state.liked})
+      } else {
+        this.setState(prevState => ({
+          liked: [...prevState.liked, id]
+        }))}
       
-    } else {
-    this.setState(prevState => ({
-      liked: [...prevState.liked, id]
-    }))}
-}
+    
+    }
+  }
+
+
 
   
   
@@ -83,7 +104,8 @@ class Fourth extends React.Component {
           <div className="row">
             <div className="col s6">
               {this.state.meetups.map((event, index) => {
-                const icon = (this.state.liked.includes(event.id)) ? 
+                const icon = (this.state.liked.includes(event.id)) 
+                ? 
                   <Icon small>star</Icon>
                  : 
                   <Icon small>star_border</Icon>
@@ -108,7 +130,7 @@ class Fourth extends React.Component {
                     description="fun"
                     // image="https://www.travelwyoming.com/sites/default/files/uploads/consumer/7-18_MedicineBowHikingFishing_KL_0708_3298.jpg"
                   >
-                    <a className="right" onClick={() => this.handleChange(event.id)}>
+                    <a id={event.id} className="right" key={event.id}onClick={this.handleChange.bind(this, event.id)}>
                       {icon}
                     </a>
                   </Cardy>

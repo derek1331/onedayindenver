@@ -18,27 +18,37 @@ class Fourth extends React.Component {
     super(props);
     this.state = {
       meetups: [],
-      liked: [1]
+      liked: [1],
+      button: false
     };
   }
 
   // handleClick(id){this.setState({[id]: {favorite: !this.state.favorite}})}
-  handleChange(id) {
+  handleChange(id,event) {
     // With setState the current and previous states are merged.
     const { liked } = this.state;
     if (liked.length === 0) {
-      this.setState({ liked: id });
-    } else if (this.state.liked.length >= 1) {
-      if (this.state.liked.includes(id)) {
-        for (var i = 0; i < this.state.liked.length; i++) {
-          if (this.state.liked[i] === id) {
-            this.state.liked.splice(i, 1);
+      this.setState({ liked: id, button: true });
+    } else if (liked.length >= 1) {
+      if (liked.includes(id)) {
+        for (var i = 0; i < liked.length; i++) {
+          if (liked[i] === id) {
+            liked.splice(i, 1);
           }
         }
-        this.setState({ liked: this.state.liked });
+        this.calendar.getEventById( event.id ).remove()
+
+
+        this.setState({ liked: liked, button: false });
       } else {
+        this.calendar.addEvent({
+          id: event.id,
+          title: event.name,
+          start: "2018-10-28T14:30:00"
+        });
         this.setState(prevState => ({
-          liked: [...prevState.liked, id]
+          liked: [...prevState.liked, id],
+          button: true
         }));
       }
     }
@@ -73,7 +83,7 @@ class Fourth extends React.Component {
       events: [
         {
           title: "My Event",
-          start: "2018-10-27T14:30:00",
+          start: "2018-10-28T14:30:00",
           allDay: false
         }
         // other events here...
@@ -83,14 +93,14 @@ class Fourth extends React.Component {
     this.calendar.render();
   }
 
-  componentDidUpdate() {
-    if (this.state.button === true) {
-      this.calendar.addEvent({
-        title: "my event",
-        start: "2018-10-27"
-      });
+   
+
+    addEvent(name){
+      if (this.state.button === true) {
+
+      }
     }
-  }
+  
 
   render() {
     return (
@@ -126,7 +136,7 @@ class Fourth extends React.Component {
                       id={event.id}
                       className="right"
                       key={event.id}
-                      onClick={this.handleChange.bind(this, event.id)}
+                      onClick={this.handleChange.bind(this, event.id,event) }
                     >
                       {icon}
                     </a>

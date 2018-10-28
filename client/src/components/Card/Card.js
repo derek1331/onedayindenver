@@ -54,7 +54,7 @@ class Cardy3 extends React.Component {
           title="Card title"
           actions={[<a href="#">This is a link</a>]}
         >
-          I am a very simple card.
+        {this.props.children}
         </Card>
       </Col>
     );

@@ -17,38 +17,33 @@ class Fourth extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-                  meetups: [1],
-                  liked:  [] 
-                };
-}
+      meetups: [],
+      liked: [1]
+    };
+  }
 
   // handleClick(id){this.setState({[id]: {favorite: !this.state.favorite}})}
   handleChange(id) {
     // With setState the current and previous states are merged.
-    const {liked} = this.state
-    if (this.state.liked.length === 0){
-      this.setState({ liked: id})
-    } else if (this.state.liked.length > 0) {
+    const { liked } = this.state;
+    if (liked.length === 0) {
+      this.setState({ liked: id });
+    } else if (this.state.liked.length >= 1) {
       if (this.state.liked.includes(id)) {
-        for( var i = 0; i < this.state.liked.length; i++){ 
-          if ( this.state.liked[i] === id) {
-            this.state.liked.splice(i, 1); 
+        for (var i = 0; i < this.state.liked.length; i++) {
+          if (this.state.liked[i] === id) {
+            this.state.liked.splice(i, 1);
           }
-       }
-        this.setState({liked: this.state.liked})
+        }
+        this.setState({ liked: this.state.liked });
       } else {
         this.setState(prevState => ({
           liked: [...prevState.liked, id]
-        }))}
-      
-    
+        }));
+      }
     }
   }
 
-
-
-  
-  
   componentDidMount() {
     axios
       .jsonp(
@@ -104,14 +99,11 @@ class Fourth extends React.Component {
           <div className="row">
             <div className="col s6">
               {this.state.meetups.map((event, index) => {
-                const icon = (this.state.liked.includes(event.id)) 
-                ? 
+                const icon = this.state.liked.includes(event.id) ? (
                   <Icon small>star</Icon>
-                 : 
+                ) : (
                   <Icon small>star_border</Icon>
-                
-                
-              
+                );
 
                 // var ho = function() {
                 //   if(this.state.meetups.liked === event.id) {
@@ -130,7 +122,12 @@ class Fourth extends React.Component {
                     description="fun"
                     // image="https://www.travelwyoming.com/sites/default/files/uploads/consumer/7-18_MedicineBowHikingFishing_KL_0708_3298.jpg"
                   >
-                    <a id={event.id} className="right" key={event.id}onClick={this.handleChange.bind(this, event.id)}>
+                    <a
+                      id={event.id}
+                      className="right"
+                      key={event.id}
+                      onClick={this.handleChange.bind(this, event.id)}
+                    >
                       {icon}
                     </a>
                   </Cardy>

@@ -163,7 +163,7 @@ const eventSeed = [
         long: -113.368978,
         attributes: ["Hiking", "Nature", "Pictures"],
         url: "https://www.bouldercoloradousa.com/things-to-do/insider-guides/flatirons/",
-        description: "The Flatirons are rock formations in the western United States, near Boulder, Colorado, consisting of flatirons. There are five large, numbered Flatirons ranging from north to south along the east slope of Green Mountain, and the term "The Flatirons" sometimes refers to these five alone.",
+        description: "The Flatirons are rock formations in the western United States, near Boulder, Colorado, consisting of flatirons. There are five large, numbered Flatirons ranging from north to south along the east slope of Green Mountain, and the term 'The Flatirons' sometimes refers to these five alone.",
         img: ""
     },
     {
@@ -183,9 +183,9 @@ const eventSeed = [
     }
 ];
 
-db.Event
+db.Events
     .remove({})
-    .then(() => db.Event.collection.insertMany(eventSeed))
+    .then(() => db.Events.collection.insertMany(eventSeed))
     .then(data => {
         console.log(data.result.n + " records inserted!");
         process.exit(0);

@@ -8,17 +8,19 @@ class Cardy extends React.Component {
       <CardPanel className={this.props.color}>
         <div className="row">
           <div className="col s6">
-            <span>{this.props.name}</span>
+            <span className={this.props.namecolor}>{this.props.name}</span>
             <br />
 
             {this.props.description}
           </div>
           <div className="col s6">
-            <img
+            {/* <button      onClick={() => { console.log("hello")}}><img
               className="right"
               src={this.props.image}
               style={{ width: "200px" }}
-            />
+         
+            /></button> */}
+            {this.props.children}
           </div>
         </div>
       </CardPanel>
@@ -29,13 +31,12 @@ class Cardy extends React.Component {
 class Cardy2 extends React.Component {
   render() {
     return (
-      <CardPanel className={this.props.color}>
+      <CardPanel className={this.props.class} style={this.props.style}>
         <div className="row">
           <div className="col s12">
-            <span>{this.props.name}</span>
-            <br />
+            <a className={this.props.namecolor} href={this.props.href}>{this.props.name}</a>
+            {this.props.children}
 
-            {this.props.description}
           </div>
         </div>
       </CardPanel>
@@ -59,4 +60,4 @@ class Cardy3 extends React.Component {
     );
   }
 }
-export { Cardy, Cardy2 };
+export { Cardy, Cardy2, Cardy3 };

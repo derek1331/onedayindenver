@@ -1,32 +1,27 @@
-import React from "react";
-import "./Fourth.css";
-import { Cardy } from "../../components/Card";
-import Cal from "../../components/Cal";
-import axios from "axios-jsonp-pro";
+import React from "react"
+import { Icon } from "react-materialize"
+import {Cardy} from "../../components/Card"
+import axios from "axios-jsonp-pro"
 import { Calendar } from "fullcalendar";
-import Button from "../../components/Button";
-import { Icon } from "react-materialize";
 
-class Fourth extends React.Component {
-  state = {
-    meetups: [],
-    liked: [],
-    button: false
-  };
 
-  // handleClick(id){this.setState({[id]: {favorite: !this.state.favorite}})}
-  handleChange =(id) => {
-    // With setState the current and previous states are merged.
-    if (this.state.liked.includes(id)) {
-      this.setState({liked: this.state.liked.pop()})
-      
-    } else {
-    this.setState(prevState => ({
-      liked: [...prevState.liked, id]
-    }))}
-}
 
+
+class Face extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      liked: false,
+      meetups: []
+    };
+    this.handleClick = this.handleClick.bind(this);
+  } 
   
+  handleClick() {
+    this.setState({
+      liked: !this.state.liked
+    });
+  }
   
   componentDidMount() {
     axios
@@ -66,30 +61,16 @@ class Fourth extends React.Component {
 
     this.calendar.render();
   }
-
-  componentDidUpdate() {
-    if (this.state.button === true) {
-      this.calendar.addEvent({
-        title: "my event",
-        start: "2018-10-27"
-      });
-    }
-  }
-
+  
+  
   render() {
     return (
-      <div className="container">
+      <div>
         <div className="section">
           <div className="row">
             <div className="col s6">
               {this.state.meetups.map((event, index) => {
-                const icon = (this.state.liked.includes(event.id)) ? 
-                  <Icon small>star</Icon>
-                 : 
-                  <Icon small>star_border</Icon>
-                
-                
-              
+                      const icon = this.state.liked ? <Icon small>star</Icon>: <Icon small>star_border</Icon>;
 
                 // var ho = function() {
                 //   if(this.state.meetups.liked === event.id) {
@@ -100,6 +81,7 @@ class Fourth extends React.Component {
                 // }
 
                 return (
+                  
                   <Cardy
                     key={index}
                     color="white"
@@ -108,20 +90,22 @@ class Fourth extends React.Component {
                     description="fun"
                     // image="https://www.travelwyoming.com/sites/default/files/uploads/consumer/7-18_MedicineBowHikingFishing_KL_0708_3298.jpg"
                   >
-                    <a className="right" onClick={() => this.handleChange(event.id)}>
-                      {icon}
-                    </a>
+          <a className="right" onClick={this.handleClick}> 
+            {icon}
+          </a>
+        
                   </Cardy>
-                );
-              })}
-            </div>
+                )})}
             <div className="col s6 center">
               <div id="calendar"> </div>;
             </div>
-          </div>
         </div>
-      </div>
+        </div>
+        </div>
+        </div>
+        
     );
   }
 }
-export default Fourth;
+
+export default Face;

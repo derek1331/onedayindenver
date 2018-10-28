@@ -1,12 +1,14 @@
 import React from "react";
 import "./Second.css";
-import {Cardy}  from "../../components/Card"
-
+import { Cardy } from "../../components/Card";
+import Collapsed from "../../components/Collapsible";
 
 class Second extends React.Component {
   render() {
     return (
-      <Cardy color="blue-grey darken-1"/>
+      <div>
+        <Collapsed />
+      </div>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import { Parallax } from "react-materialize";
+import TestModal from "../../components/Modal"
 
 
 class Home extends React.Component {
@@ -18,15 +19,17 @@ class Home extends React.Component {
               <h5 className="header col s12 light white-text">
                 One Day In Denver is the one stop app for exploring Denver!
               </h5>
+              <TestModal />
             </div>
             <div className="row center">
-              <a
+   
+              {/* <a
                 href="http://materializecss.com/getting-started.html"
                 id="download-button"
                 className="btn-large waves-effect waves-light teal lighten-1"
               >
                 Sign up | Login
-              </a>
+              </a> */}
             </div>
             <br />
             <br />

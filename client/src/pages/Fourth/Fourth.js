@@ -7,13 +7,8 @@ import { Calendar } from "fullcalendar";
 import Button from "../../components/Button";
 import { Icon } from "react-materialize";
 
-class Fourth extends React.Component {
-  // state = {
-  //   meetups: [],
-  //   liked: [],
-  //   button: false
-  // };
 
+class Fourth extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,8 +18,7 @@ class Fourth extends React.Component {
     };
   }
 
-  // handleClick(id){this.setState({[id]: {favorite: !this.state.favorite}})}
-  handleChange(id,event) {
+  handleChange(id, event) {
     // With setState the current and previous states are merged.
     const { liked } = this.state;
     if (liked.length === 0) {
@@ -36,8 +30,7 @@ class Fourth extends React.Component {
             liked.splice(i, 1);
           }
         }
-        this.calendar.getEventById( event.id ).remove()
-
+        this.calendar.getEventById(event.id).remove();
 
         this.setState({ liked: liked, button: false });
       } else {
@@ -93,15 +86,6 @@ class Fourth extends React.Component {
     this.calendar.render();
   }
 
-   
-
-    addEvent(name){
-      if (this.state.button === true) {
-
-      }
-    }
-  
-
   render() {
     return (
       <div className="container">
@@ -114,15 +98,6 @@ class Fourth extends React.Component {
                 ) : (
                   <Icon small>star_border</Icon>
                 );
-
-                // var ho = function() {
-                //   if(this.state.meetups.liked === event.id) {
-                //    return <Icon small>star</Icon>
-                //   } else {
-                //     return <Icon small>star_border</Icon>
-                //   }
-                // }
-
                 return (
                   <Cardy
                     key={index}
@@ -136,7 +111,7 @@ class Fourth extends React.Component {
                       id={event.id}
                       className="right"
                       key={event.id}
-                      onClick={this.handleChange.bind(this, event.id,event) }
+                      onClick={this.handleChange.bind(this, event.id, event)}
                     >
                       {icon}
                     </a>

@@ -7,6 +7,9 @@ import Home from "./pages/Home";
 import Second from "./pages/Second";
 import Third from "./pages/Third";
 import Fourth from "./pages/Fourth";
+import TestModal from "./components/Modal";
+import Collapsed from './components/Collapsible';
+
 
 class App extends Component {
   render() {

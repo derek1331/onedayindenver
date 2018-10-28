@@ -7,8 +7,11 @@ import Home from "./pages/Home";
 import Second from "./pages/Second";
 import Third from "./pages/Third";
 import Fourth from "./pages/Fourth";
+import TestModal from "./components/Modal";
+import Collapsed from './components/Collapsible';
 import Testing from "./pages/Testing";
 import Map from "./pages/Map";
+
 
 class App extends Component {
   render() {

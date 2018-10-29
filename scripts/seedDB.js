@@ -9,7 +9,7 @@ mongoose.connect(
 const eventSeed = [
         {
         name: "Roxburough State Park",
-        catagory: "Activity",
+        catagory: "Adventure",
         rating: 3.0,
         time: 2.5,
         drive: 30,
@@ -24,7 +24,7 @@ const eventSeed = [
     },
     {
         name: "Waterton Canyon",
-        catagory: "Activity",
+        catagory: "Adventure",
         rating: 3.0,
         time: 3.0,
         drive: 30,
@@ -39,7 +39,7 @@ const eventSeed = [
     },
     {
         name: "Chatfield State Park",
-        catagory: "Activity",
+        catagory: "Adventure",
         rating: 2.5,
         time: 2.5,
         drive: 30,
@@ -54,7 +54,7 @@ const eventSeed = [
     },
     {
         name: "Look Out Mountain",
-        catagory: "Activity",
+        catagory: "Adventure",
         rating: 4.0,
         time: 2.5,
         drive: 30,
@@ -69,7 +69,7 @@ const eventSeed = [
     },
     {
         name: "North Table Mountain Trail",
-        catagory: "Activity",
+        catagory: "Adventure",
         rating: 3.75,
         time: 2.5,
         drive: 30,
@@ -126,7 +126,7 @@ const eventSeed = [
     },
     {
         name: "little Man Icecream",
-        catagory: "Entertainment",
+        catagory: "Dining",
         rating: 4.00,
         time: 2,
         drive: 5,
@@ -154,7 +154,7 @@ const eventSeed = [
     },
     {
         name: "Flat Irons Boulder, CO",
-        catagory: "Activity",
+        catagory: "Adventure",
         rating: 4.00,
         time: 3.5,
         drive: 45,

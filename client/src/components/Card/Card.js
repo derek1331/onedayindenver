@@ -47,7 +47,6 @@ class Cardy2 extends React.Component {
 class Cardy3 extends React.Component {
   render() {
     return (
-      <Col m={6} s={12}>
         <Card
           className={this.props.color}
           textClassName="white-text"
@@ -56,8 +55,17 @@ class Cardy3 extends React.Component {
         >
         {this.props.children}
         </Card>
-      </Col>
     );
   }
 }
-export { Cardy, Cardy2, Cardy3 };
+  
+  class Cardy4 extends React.Component {
+    render() {
+      return(
+        <CardPanel>
+          {this.props.children}
+        </CardPanel>
+      )
+    }
+  }
+export { Cardy, Cardy2, Cardy3, Cardy4 };

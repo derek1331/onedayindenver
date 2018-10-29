@@ -3,7 +3,10 @@ import "./Third.css";
 import { Cardy2 } from "../../components/Card";
 import { Row, Input, Icon } from "react-materialize";
 import axios from "axios-jsonp-pro";
-import Button from "../../components/Button";
+import {LikeButton, SearchButton} from "../../components/Button";
+import Map from "../../components/Map"
+
+
 
 class Third extends React.Component {
   state = {
@@ -23,29 +26,11 @@ class Third extends React.Component {
       });
   }
 
-  // renderUnfavorite = () => {
-  //   return (
-  //     <a className="right" onClick={this.state.favorite===event.id}>
-  //       <Icon small>star_border</Icon>
-  //     </a>
-  //   );
-  // };
-  // renderFavorite = () => {
-  //   return (
-  //     <a className="right" onClick={this.state.favorite}>
-  //       <Icon small>star</Icon>
-  //     </a>
-  //   );
-  // };
   favorite(index) {
     const newFavorite = [...this.state.favorite];
     newFavorite[index] = !this.state.favorite[index];
     this.setState({ favorite: newFavorite });
   }
-
-  // let jasper = Object.assign({}, this.state.favorite);    //creating copy of object
-  // jasper = !this.state.favorite;                        //updating value
-  // this.setState({jasper});
 
   render() {
     return (
@@ -76,21 +61,7 @@ class Third extends React.Component {
                     name={event.name}
                     href={event.link}
                   >
-                    {/* this.state.favorite
-                      ?       <a className="right" onClick={this.state.favorite}>
-                      <Icon small>star</Icon>
-                    </a> */}
-                    <Button />
-                    {/* {this.state.favorite ? (
-                    <a className="right" onClick={this.changeFavorite}>
-                        <Icon small>star</Icon>
-                      </a>
-                    ) : (
-                      <a className="right" onClick={this.changeFavorite}>
-                        <Icon small>star_border</Icon>
-                      </a>
-                    )} */}
-                    {/* {this.changeFavorite(index)} */}
+                    <LikeButton />
                     <br />
                     <span> {`Time: ${event.local_time}`}</span>
                     <br />
@@ -101,10 +72,21 @@ class Third extends React.Component {
                 );
               })}
             </div>
-            <div className="col s6 center-align" />
+            <div className="col s6 third-map">
+              <span>Meetups in Denver!</span>
+              <span>
+                <form action="/action_page.php">
+                  <input type="date" name="bday" />
+                  <input type="submit" />
+                </form>
+              </span>
+              <SearchButton />
+              <Map/>
+            </div>
+          </div>
           </div>
         </div>
-      </div>
+      
     );
   }
 }

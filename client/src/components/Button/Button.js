@@ -39,11 +39,11 @@ class SearchButton extends React.Component {
             <div className="input-field col s12">
               <input
                 placeholder="Placeholder"
-                id="first_name"
+                id={this.props.id}
                 type="text"
                 className="validate"
               />
-              <label htmlFor="first_name">First Name</label>
+              <label htmlFor="Search">Search</label>
             </div>
           </div>
         </form>

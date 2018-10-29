@@ -48,16 +48,16 @@ class Fourth extends React.Component {
   }
 
   componentDidMount() {
-    axios
-      .jsonp(
-        `https://api.meetup.com/find/upcoming_events?&sign=tru&key=7f4c736e302a5ef447a421877794f2d&photo-host=public&lon=-104.990&end_date_range=2018-10-25T23:59:59&start_date_range=2018-10-25T00:00:00&page=20&lat=39.739&order=time`
-      )
-      .then(res => {
-        const meetups = res.data.events;
-        this.setState({ meetups });
-        console.log(res.data.events);
-      });
-
+    axios({
+      method:'get',
+      baseURL:"http://localhost:5000/api/",
+      url:'http://localhost:5000/api/events',
+    })
+      .then(function(res) {
+        // const meetups = res.data.events;
+        // this.setState({ meetups });
+        console.log(res);
+    });
     var calendarEl = document.getElementById("calendar"); // grab element reference
 
     this.calendar = new Calendar(calendarEl, {

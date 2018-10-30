@@ -1,11 +1,13 @@
 import React from "react";
 import "./Home.css";
-import { Parallax } from "react-materialize";
+import { Parallax, Button } from "react-materialize";
 import TestModal from "../../components/Modal"
 
 
 class Home extends React.Component {
+
   render() {
+
     return (
       <div>
         <div className="home-header">
@@ -19,10 +21,12 @@ class Home extends React.Component {
               <h5 className="header col s12 light white-text">
                 One Day In Denver is the one stop app for exploring Denver!
               </h5>
-              <TestModal />
+              <TestModal>
+                <Button>Sign up</Button> <Button>Log in</Button>
+              </TestModal>
             </div>
             <div className="row center">
-   
+
               {/* <a
                 href="http://materializecss.com/getting-started.html"
                 id="download-button"
@@ -44,7 +48,7 @@ class Home extends React.Component {
               <div className="col s12 m4">
                 <div className="icon-block">
                   <h2 className="center brown-text">
-                  Adventure
+                    Adventure
                     {/* <i className="material-icons">Adventure</i> */}
                   </h2>
                   <h5 className="center">Speeds up development</h5>
@@ -59,7 +63,7 @@ class Home extends React.Component {
               <div className="col s12 m4">
                 <div className="icon-block">
                   <h2 className="center brown-text">
-                  Dining
+                    Dining
                     {/* <i className="material-icons">Dining</i> */}
                   </h2>
                   <h5 className="center">User Experience Focused</h5>
@@ -75,7 +79,7 @@ class Home extends React.Component {
               <div className="col s12 m4">
                 <div className="icon-block">
                   <h2 className="center brown-text">
-                  Experiences
+                    Experiences
                     {/* <i className="material-icons">Experiences</i> */}
                   </h2>
                   <h5 className="center">Easy to work with</h5>
@@ -90,7 +94,7 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
-        <Parallax imageSrc="images\maroonbells.jpg"/>
+        <Parallax imageSrc="images\maroonbells.jpg" />
 
         {/* <div className="container">
           <div className="row center">
@@ -125,7 +129,7 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
-        <Parallax imageSrc="images\skylinenight.jpg"/>
+        <Parallax imageSrc="images\skylinenight.jpg" />
         {/* <div className="container">
           <div className="row center">
             <h5 className="header col s12 light">

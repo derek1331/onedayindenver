@@ -23,16 +23,16 @@
 } */
 
 .collapsible {
-    width: 800px;
-    height: 500px;
+    /* width: 800px;
+    height: 500px; */
     align-content: center;
-    margin-left: 20%;
+    /* margin-left: 20%; */
     color: teal;}
 
-    .div {
+    /* .div {
         margin: right;
         float: right;
-    }
+    } */
 
     .collapsibleItem {
         height: 500px;

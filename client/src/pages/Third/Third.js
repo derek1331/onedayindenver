@@ -3,49 +3,57 @@ import "./Third.css";
 import { Cardy2 } from "../../components/Card";
 import { Row, Input, Icon } from "react-materialize";
 import axios from "axios-jsonp-pro";
-import Button from "../../components/Button";
+import { LikeButton, SearchButton } from "../../components/Button";
+import Map from "../../components/Map";
 
 class Third extends React.Component {
   state = {
-    meetups: []
-    // favorite: this.meetups.map((element) => false)
+    meetups: [],
+    query: new Date().toISOString().slice(0, 10)
   };
 
-  componentDidMount() {
+  runAxios() {
     axios
-      .jsonp(
-        `https://api.meetup.com/find/upcoming_events?&sign=tru&key=7f4c736e302a5ef447a421877794f2d&photo-host=public&lon=-104.990&end_date_range=2018-10-25T23:59:59&start_date_range=2018-10-25T00:00:00&page=20&lat=39.739&order=time`
-      )
-      .then(res => {
-        const meetups = res.data.events;
-        this.setState({ meetups });
-        console.log(res.data.events);
-      });
+    .jsonp(
+      `https://api.meetup.com/find/upcoming_events?&sign=tru&key=7d3c6c6011422e5e152c5d752564e77&photo-host=public&lon=-104.990&end_date_range=${
+        this.state.query
+      }T23:59:59&start_date_range=${
+        this.state.query
+      }T00:00:00&page=20&lat=39.739&order=time`
+    )
+    .then(res => {
+      const meetups = res.data.events;
+      this.setState({ meetups });
+      console.log(res.data.events);
+    });
   }
 
-  // renderUnfavorite = () => {
-  //   return (
-  //     <a className="right" onClick={this.state.favorite===event.id}>
-  //       <Icon small>star_border</Icon>
-  //     </a>
-  //   );
-  // };
-  // renderFavorite = () => {
-  //   return (
-  //     <a className="right" onClick={this.state.favorite}>
-  //       <Icon small>star</Icon>
-  //     </a>
-  //   );
-  // };
-  favorite(index) {
-    const newFavorite = [...this.state.favorite];
-    newFavorite[index] = !this.state.favorite[index];
-    this.setState({ favorite: newFavorite });
+  componentDidMount() {
+      this.runAxios()
   }
 
-  // let jasper = Object.assign({}, this.state.favorite);    //creating copy of object
-  // jasper = !this.state.favorite;                        //updating value
-  // this.setState({jasper});
+  renderMeetups = () => {
+    let date = document.getElementById("date").value;
+    console.log(date);
+    if (date) {
+      this.setState({
+        query: date
+      }, this.runAxios)
+    } else {
+      return
+    }
+  }
+  
+
+  renderClick = () => {
+    let date = document.getElementById("date").value;
+      if (date) {
+        this.setState({
+          query: date
+        })
+        console.log(date)
+      }
+  }
 
   render() {
     return (
@@ -76,32 +84,44 @@ class Third extends React.Component {
                     name={event.name}
                     href={event.link}
                   >
-                    {/* this.state.favorite
-                      ?       <a className="right" onClick={this.state.favorite}>
-                      <Icon small>star</Icon>
-                    </a> */}
-                    <Button />
-                    {/* {this.state.favorite ? (
-                    <a className="right" onClick={this.changeFavorite}>
-                        <Icon small>star</Icon>
-                      </a>
-                    ) : (
-                      <a className="right" onClick={this.changeFavorite}>
-                        <Icon small>star_border</Icon>
-                      </a>
-                    )} */}
-                    {/* {this.changeFavorite(index)} */}
+                    <LikeButton />
                     <br />
                     <span> {`Time: ${event.local_time}`}</span>
                     <br />
                     <span>{`Loacation: ${doesExist()}`}</span>
                     <br />
+                    <span>{`Day: ${event.local_date}`}</span>
                     <br />
                   </Cardy2>
                 );
               })}
             </div>
-            <div className="col s6 center-align" />
+            <div className="col s6 third-map">
+              <span>Meetups in Denver!</span>
+              <div className="row">
+                <form className="col s12">
+                  <div className="row">
+                    <div className="input-field col s12">
+                      <input id="date" type="date" name="bday" />
+
+                      {/* <input
+                        placeholder="Category"
+                        id="search-meetups"
+                        type="text"
+                        className="validate"
+                      /> */}
+                      <a
+                        className="waves-effect waves-light btn"
+                        onClick={this.renderMeetups}
+                      >
+                        Search
+                      </a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <Map />
+            </div>
           </div>
         </div>
       </div>

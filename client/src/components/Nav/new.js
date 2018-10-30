@@ -29,7 +29,7 @@ class Nav extends React.Component {
                 color: "red"
               }}
             >
-              Favorites 
+              Second
             </NavLink>
           </ul>
           <ul className="right hide-on-med-and-down">
@@ -40,7 +40,7 @@ class Nav extends React.Component {
                 color: "red"
               }}
             >
-              Events
+              Third
             </NavLink>
           </ul>
           <ul className="right hide-on-med-and-down">
@@ -51,7 +51,7 @@ class Nav extends React.Component {
                 color: "red"
               }}
             >
-              Itinerary
+              Fourth
             </NavLink>
           </ul>
 

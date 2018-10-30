@@ -6,7 +6,7 @@ class Foot extends React.Component {
   render() {
     return (
       <Footer
-        copyrights="&copy 2015 Copyright Text"
+        copyrights="2018 Copyright 1DAYINDENVER"
         moreLinks={
           <a className="grey-text text-lighten-4 right" href="#!">
             More Links
@@ -38,9 +38,9 @@ class Foot extends React.Component {
         }
         className="teal"
       >
-        <h5 className="white-text">Footer Content</h5>
+        <h5 className="white-text">A Day In Denver</h5>
         <p className="grey-text text-lighten-4">
-          You can use rows and columns here to organize your footer content.
+        One Day In Denver is the one stop app for exploring Denver!
         </p>
       </Footer>
     );

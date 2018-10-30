@@ -21,7 +21,7 @@ class Home extends React.Component {
               </h5>
             </div>
             <div className="row center">
-              <TestModal />
+            <TestModal />
               {/* <a
                 href="http://materializecss.com/getting-started.html"
                 id="download-button"
@@ -46,12 +46,9 @@ class Home extends React.Component {
                   Adventure
                     {/* <i className="material-icons">Adventure</i> */}
                   </h2>
-                  <h5 className="center">Speeds up development</h5>
+                  <h5 className="center">Exciting Experiences</h5>
                   <p className="light">
-                    We did most of the heavy lifting for you to provide a
-                    default stylings that incorporate our custom components.
-                    Additionally, we refined animations and transitions to
-                    provide a smoother experience for developers.
+                  Fly fishing, exploring, skydiving, mountain climbing, kayaking, mountain biking, skiing, snowboarding, hiking, river rafting or participating in extreme sports.
                   </p>
                 </div>
               </div>
@@ -61,13 +58,9 @@ class Home extends React.Component {
                   Dining
                     {/* <i className="material-icons">Dining</i> */}
                   </h2>
-                  <h5 className="center">User Experience Focused</h5>
+                  <h5 className="center">Eats and Drinks</h5>
                   <p className="light">
-                    By utilizing elements and principles of Material Design, we
-                    were able to create a framework that incorporates components
-                    and animations that provide more feedback to users.
-                    Additionally, a single underlying responsive system across
-                    all platforms allow for a more unified user experience.
+                  In Denver, one can eat incredibly well across many cuisines, enjoy beer from a not-so-secret beer scene to fantastic craft spirits and a booming roster of restaurants that take influences from the far reaches of the globe, there's a little bit of everything in the Mile High City.
                   </p>
                 </div>
               </div>
@@ -77,12 +70,9 @@ class Home extends React.Component {
                   Experiences
                     {/* <i className="material-icons">Experiences</i> */}
                   </h2>
-                  <h5 className="center">Easy to work with</h5>
+                  <h5 className="center">Event or Occurance</h5>
                   <p className="light">
-                    We have provided detailed documentation as well as specific
-                    code examples to help new users get started. We are also
-                    always open to feedback and can answer any questions a user
-                    may have about Materialize.
+                  Top-rated events from beer tours, concerts, museums, parks, canibus tours, outdoor concerts, sporting events, opera, casinos, symphony, theatre, and jazz. 
                   </p>
                 </div>
               </div>

@@ -19,10 +19,12 @@ class App extends Component {
          
           <main>
           <Switch>
+          <Route exact path="/fourth" component={Fourth} />
+          <Route exact path="/third" component={Third} />
+          <Route exact path="/second" component={Second} />
             <Route exact path="/" component={Home} />
-            <Route exact path="/second" component={Second} />
-            <Route exact path="/third" component={Third} />
-            <Route exact path="/fourth" component={Fourth} />
+           
+           
           </Switch>
             </main>
           <Foot />

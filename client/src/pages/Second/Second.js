@@ -7,10 +7,11 @@ import Collapsed from "../../components/Collapsible"
 class Second extends React.Component {
   render() {
     return (
-      <div>
+    <div className="bigdiv">
+      <div className="collapis">
       <Collapsed /> 
-      <Cardy color="blue-grey darken-1"/>
       </div>
+    </div>
     );
   }
 }

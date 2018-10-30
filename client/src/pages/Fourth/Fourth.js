@@ -6,7 +6,8 @@ import axios from "axios-jsonp-pro";
 import { Calendar } from "fullcalendar";
 import Button from "../../components/Button";
 import { Icon } from "react-materialize";
-
+// import Map from "../../components/Map";
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 
 class Fourth extends React.Component {
   constructor(props) {
@@ -14,15 +15,45 @@ class Fourth extends React.Component {
     this.state = {
       meetups: [],
       liked: [1],
-      button: false
+      button: false,
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {},
+      mapstuff: []
     };
   }
+  onMarkerClick = (props, marker, e) =>
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
 
-  handleChange(id, event) {
+  onMapClicked = props => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      });
+    }
+  };
+
+  windowHasClosed = props => {
+    this.setState({
+      showingInfoWindow: false
+    });
+  };
+
+  handleChange(id, event,) {
     // With setState the current and previous states are merged.
-    const { liked } = this.state;
+    const { liked, mapstuff } = this.state;
+    const map = {name: event.name,
+                  lat: event.venue ? event.venue.lat : "",
+                  lng: event.venue ? event.venue.lon : "",
+                id: event.id};
     if (liked.length === 0) {
       this.setState({ liked: id, button: true });
+      // if found
     } else if (liked.length >= 1) {
       if (liked.includes(id)) {
         for (var i = 0; i < liked.length; i++) {
@@ -30,18 +61,25 @@ class Fourth extends React.Component {
             liked.splice(i, 1);
           }
         }
+        for (var j = 0; j < mapstuff.length; i++) {
+          if (mapstuff[j].id === id) {
+            mapstuff.splice(j, 1);
+          }
+        }
         this.calendar.getEventById(event.id).remove();
 
         this.setState({ liked: liked, button: false });
+        // if not found
       } else {
         this.calendar.addEvent({
           id: event.id,
           title: event.name,
-          start: "2018-10-29T20:30:00"
+          start: `${event.local_date}T${event.local_time}`
         });
         this.setState(prevState => ({
           liked: [...prevState.liked, id],
-          button: true
+          button: true,
+          mapstuff: [...prevState.mapstuff, map]
         }));
       }
     }
@@ -74,11 +112,6 @@ class Fourth extends React.Component {
       },
       columnHeader: false,
       events: [
-        {
-          title: "My Event",
-          start: "2018-10-28T14:30:00",
-          allDay: false
-        }
         // other events here...
       ]
     });
@@ -120,9 +153,37 @@ class Fourth extends React.Component {
               })}
             </div>
             <div className="col s6 center">
-            <Cardy4 id="calendar">
-              <div id="calendar"> </div>;
+              <Cardy4>
+                <div id="calendar"> </div>
               </Cardy4>
+              <Map
+                google={this.props.google}
+                zoom={14}
+                initialCenter={{ lat: 39.739, lng: -104.99 }}
+                style={{ width: "500px", height: "500px" }}
+              >
+                {this.state.mapstuff.map((event, index) => {
+                  return (
+                    <Marker
+                      key={event.id}
+                      onClick={this.onMarkerClick}
+                      name={event.name}
+                      position={{lat: event.lat, lng: event.lng}}
+                    />
+                  );
+                })}
+
+                <InfoWindow
+                  onOpen={this.windowHasOpened}
+                  onClose={this.windowHasClosed}
+                  marker={this.state.activeMarker}
+                  visible={this.state.showingInfoWindow}
+                >
+                  <div>
+                    <h1>{this.state.selectedPlace.name}</h1>
+                  </div>
+                </InfoWindow>
+              </Map>
             </div>
           </div>
         </div>
@@ -130,4 +191,6 @@ class Fourth extends React.Component {
     );
   }
 }
-export default Fourth;
+export default GoogleApiWrapper({
+  apiKey: "AIzaSyBhNoh-8XLeci7x7IWHfIGXuxcp1djJfq8"
+})(Fourth);

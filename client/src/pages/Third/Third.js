@@ -120,7 +120,6 @@ class Third extends React.Component {
                   </div>
                 </form>
               </div>
-              <Map />
             </div>
           </div>
         </div>

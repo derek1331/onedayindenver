@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const Schema = mongoose.Schema;
@@ -18,20 +17,6 @@ UserSchema.methods.validPassword = function (password) {
 };
 
 const User = mongoose.model("User", UserSchema);
-=======
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
-const bcrypt = require('bcryptjs');
-mongoose.promise = Promise
-
-// Define userSchema
-const userSchema = new Schema({
-
-	username: { type: String, unique: false, required: false },
-	password: { type: String, unique: false, required: false }
->>>>>>> 9255454cfc3d60643ec2539e959559d3359cbb36
-
-})
 
 // Define schema methods
 userSchema.methods = {

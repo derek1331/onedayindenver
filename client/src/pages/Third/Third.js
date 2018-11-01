@@ -60,7 +60,7 @@ class Third extends React.Component {
       <div className="container">
         <div className="section">
           <div className="row">
-            <div className="col s6">
+            <div className="col s12">
               {this.state.meetups.map((event, index) => {
                 function doesExist() {
                   if (event.venue) {
@@ -80,6 +80,7 @@ class Third extends React.Component {
                       borderTopWidth: "5px",
                       backgroundColor: "#fafafa"
                     }}
+                    class="col s6"
                     namecolor="teal-text"
                     name={event.name}
                     href={event.link}

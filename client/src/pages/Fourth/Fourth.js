@@ -1,12 +1,9 @@
 import React from "react";
 import "./Fourth.css";
 import { Cardy, Cardy4 } from "../../components/Card";
-import Cal from "../../components/Cal";
 import axios from "axios-jsonp-pro";
 import { Calendar } from "fullcalendar";
-import Button from "../../components/Button";
 import { Icon } from "react-materialize";
-// import Map from "../../components/Map";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 
 class Fourth extends React.Component {
@@ -44,28 +41,31 @@ class Fourth extends React.Component {
     });
   };
 
-  handleChange(id, event,) {
+  handleChange(id, event) {
     // With setState the current and previous states are merged.
     const { liked, mapstuff } = this.state;
-    const map = {name: event.name,
-                  lat: event.venue ? event.venue.lat : "",
-                  lng: event.venue ? event.venue.lon : "",
-                id: event.id};
-    if (liked.length === 0) {
-      this.setState({ liked: id, button: true });
-      // if found
-    } else if (liked.length >= 1) {
+    const map = {
+      name: event.name,
+      lat: event.venue ? event.venue.lat : "",
+      lng: event.venue ? event.venue.lon : "",
+      id: event.id
+    };
+    // if (liked.length === 0) {
+    //   this.setState({ liked: id, button: true });
+    //   // if found
+    // } else
+    if (liked.length >= 1) {
       if (liked.includes(id)) {
         for (var i = 0; i < liked.length; i++) {
           if (liked[i] === id) {
             liked.splice(i, 1);
           }
-        }
+        } if (mapstuff.venue) {
         for (var j = 0; j < mapstuff.length; i++) {
           if (mapstuff[j].id === id) {
             mapstuff.splice(j, 1);
           }
-        }
+        }}
         this.calendar.getEventById(event.id).remove();
 
         this.setState({ liked: liked, button: false });
@@ -156,11 +156,12 @@ class Fourth extends React.Component {
               <Cardy4>
                 <div id="calendar"> </div>
               </Cardy4>
+              <div className="col s6">
               <Map
                 google={this.props.google}
                 zoom={14}
                 initialCenter={{ lat: 39.739, lng: -104.99 }}
-                style={{ width: "500px", height: "500px" }}
+                style={{ width: "100%", height: "100%" }}
               >
                 {this.state.mapstuff.map((event, index) => {
                   return (
@@ -168,7 +169,7 @@ class Fourth extends React.Component {
                       key={event.id}
                       onClick={this.onMarkerClick}
                       name={event.name}
-                      position={{lat: event.lat, lng: event.lng}}
+                      position={{ lat: event.lat, lng: event.lng }}
                     />
                   );
                 })}
@@ -184,6 +185,8 @@ class Fourth extends React.Component {
                   </div>
                 </InfoWindow>
               </Map>
+              </div>
+
             </div>
           </div>
         </div>

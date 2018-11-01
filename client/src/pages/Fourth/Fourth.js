@@ -156,11 +156,12 @@ class Fourth extends React.Component {
               <Cardy4>
                 <div id="calendar"> </div>
               </Cardy4>
+              <div className="col s6">
               <Map
                 google={this.props.google}
                 zoom={14}
                 initialCenter={{ lat: 39.739, lng: -104.99 }}
-                style={{ width: "500px", height: "500px" }}
+                style={{ width: "100%", height: "100%" }}
               >
                 {this.state.mapstuff.map((event, index) => {
                   return (
@@ -184,6 +185,8 @@ class Fourth extends React.Component {
                   </div>
                 </InfoWindow>
               </Map>
+              </div>
+
             </div>
           </div>
         </div>

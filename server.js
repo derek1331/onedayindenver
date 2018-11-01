@@ -58,7 +58,6 @@ mongoose.connect(
     process.env.MONGODB_URI || "mongodb://localhost/onedayindenver"
 );
 
-
 app.listen(PORT, function () {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });

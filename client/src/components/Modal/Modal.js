@@ -137,9 +137,10 @@ class TestModal extends React.Component {
         header="1 Day In Denver"
         trigger={<Button>Sign Up | Login </Button>}
       >
+        {icon}
         <button onClick={this.handleLo}>Login</button>
         <button onClick={this.handleSign}>Signup</button>
-        {icon}
+        
         <div className="navbutton">{this.props.children}</div>
       </Modal>
     );

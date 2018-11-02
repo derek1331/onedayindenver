@@ -9,11 +9,13 @@ class Cardy extends React.Component {
         <div className="row">
           <div className="col s6">
             <span className={this.props.namecolor} style={this.props.style}>{this.props.name} </span>
+            <span className={this.props.namecolor} style={this.props.style}>{this.props.description} </span>
             <br />
 
             {this.props.description}
           </div>
           <div className="col s6">
+          <span className={this.props.namecolor} style={this.props.style}>{this.props.name} </span>
             {this.props.children}
           </div>
         </div>

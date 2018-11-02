@@ -32,26 +32,83 @@ class Second extends React.Component {
             if (activity.catagory === "Adventure") {
             return (
               <div className="col s6">
-                <Cardy key={index} name={activity.name} />
-              </div>
+                    <CardPanel>
+        <div className="row">
+          <div className="col s6">
+            <span style={{color: "black", fontSize: 15, fontStyle: "bold" }}>{activity.name }</span>
+            <br></br>
+            DESCRIPTION:
+            <span style={{color: "black", fontSize: 10 }}> {activity.description}</span>
+            <br />
+            ADVICE:
+            <span style={{color: "black", fontSize: 10 }}> {activity.advice}</span>
+            
+            
+            
+          </div>
+          <div className="col s6">
+          <span></span>
+          <img style={{width:150, height:150}} src={activity.img}></img>
+          </div>
+        </div>
+      </CardPanel>
+            </div>
             )};
           })}
           dining={this.state.activity.map((activity, index) => {
             if (activity.catagory === "Dining") {
             return (
               <div className="col s6">
-                <Cardy key={index} name={activity.name} />
-              </div>
-            )};
-          })}
+              <CardPanel>
+  <div className="row">
+    <div className="col s6">
+      <span style={{color: "black", fontSize: 15, fontStyle: "bold" }}>{activity.name }</span>
+      <br></br>
+      DESCRIPTION:
+      <span style={{color: "black", fontSize: 10 }}> {activity.description}</span>
+      <br />
+      ADVICE:
+      <span style={{color: "black", fontSize: 10 }}> {activity.advice}</span>
+      
+      
+      
+    </div>
+    <div className="col s6">
+    <span></span>
+    <img style={{width:150, height:150}} src={activity.img}></img>
+    </div>
+  </div>
+</CardPanel>
+      </div>
+      )};
+    })}
           entertainment={this.state.activity.map((activity, index) => {
             if (activity.catagory === "Entertainment") {
             return (
               <div className="col s6">
-                <Cardy key={index} name={activity.name} />
-              </div>
-            )};
-          })}
+              <CardPanel>
+  <div className="row">
+    <div className="col s6">
+      <span style={{color: "black", fontSize: 15, fontStyle: "bold" }}>{activity.name }</span>
+      <br></br>
+      DESCRIPTION:
+      <span style={{color: "black", fontSize: 10 }}> {activity.description}</span>
+      <br />
+      ADVICE:
+      <span style={{color: "black", fontSize: 10 }}> {activity.advice}</span>
+      
+      
+      
+    </div>
+    <div className="col s6">
+    <span></span>
+    <img style={{width:150, height:150}} src={activity.img}></img>
+    </div>
+  </div>
+</CardPanel>
+      </div>
+      )};
+    })}
         />
       </div>
     );

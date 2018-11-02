@@ -99,7 +99,7 @@ class Testing extends Component {
         </div>
         <br />
         <br />
-        {/* <div>
+        <div>
           <p>Sign Up</p>
           <input
             type="email"
@@ -118,7 +118,7 @@ class Testing extends Component {
           />
           <br />
           <button onClick={this.handleSubmit}>Sign Up</button>
-        </div> */}
+        </div>
       </div>
     );
   }
